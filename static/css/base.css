@@ -1,1 +1,16 @@
+/** top-level style **/
 body { background:#ecf0f1; }
+.content { padding:20px; min-height:600px; border-radius:5px; background:#FFF; }
+.sect { padding:1%; border-radius:5px; width:47%; min-height:600px; color:#FFF; }
+.editer { float:left; background:#3498db; }
+.viewer { float:right; background:#9b59b6; }
+
+/** common block style **/
+.sect__title { font-size:20px; }
+.sect__title .description { font-size:15px; display:block; }
+
+/** edtior'children style**/
+
+
+/** viwer'children style**/
+

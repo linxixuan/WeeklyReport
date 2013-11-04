@@ -8,5 +8,43 @@
         <script src="static/js/base.js"></script>
     </head>
     <body>
+        <div class="header"></div>
+        <div class="content">
+            <div class="editer sect">
+                <h2 class="sect__title">Editer
+                    <span class="description">put information into blank</span>
+                </h2>
+                <div class="sect__body">
+                    <div class="title group">
+                        <label class="name">Title:</label>
+                        <input type="text" class="input" placeholder="input task's title"/>
+                    </div>
+                    <div class="progress group">
+                        <label class="name">Progress:</label>
+                        <input type="text" class="input" placeholder="input task's progress by percentege form"/>
+                    </div>
+                    <div class="type group">
+                        <label class="name">Type:</label>
+                        <input type="text" class="input" placeholder="input task's type(function/bugfix/agile/promotion)"/>
+                    </div>
+                    <div class="description group">
+                        <label class="name">Description:</label>
+                        <textarea class="input" placeholder="input description to help others understand this task"></textarea>
+                        <label>(*)</label>
+                    </div>
+                </div>
+            </div>
+            <div class="viewer sect">
+                <h2 class="sect__title">Viewer
+                    <span class="description">celect the information you want to generate</span>
+                </h2>
+                <div class="sect__body">
+                </div>
+            </div>
+            <!-- 这里有向左箭头的竖条 -->
+            <div class="result" style="display:none;">
+            </div>
+        </div>
+        <div class="footer"></div>
     </body>
 </html>
