@@ -32,6 +32,7 @@
                         <textarea class="input" placeholder="input description to help others understand this task"></textarea>
                         <label>(*)</label>
                     </div>
+                    <a class="add-record btn" href="javascript:void(0);">添加</a>
                 </div>
             </div>
             <div class="viewer sect">
@@ -39,6 +40,12 @@
                     <span class="description">celect the information you want to generate</span>
                 </h2>
                 <div class="sect__body">
+                    <div class="completed container">
+                    </div>
+                    <div class="plan container">
+                    </div>
+                    <div class="refrection container">
+                    </div>
                 </div>
             </div>
             <!-- 这里有向左箭头的竖条 -->
@@ -47,4 +54,10 @@
         </div>
         <div class="footer"></div>
     </body>
+    <script type="text/x-template" id="list-item-markup">
+        <div class="list__item">
+            <h3 class="head"><span class="title">*</span><span class="progress">*</span></h3>
+            <p class="body"><span class="description">*</span><span class="type">*</span></p>
+        </div>
+    </script>
 </html>
