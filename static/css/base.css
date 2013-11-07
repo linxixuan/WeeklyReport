@@ -13,7 +13,7 @@ body { background:#ecf0f1; }
 
 
 /** viwer'children style**/
-.container { float:left; margin:0 auto 10px; border:1px solid #ccc; width:48%; height:200px; background:#FFF; }
+.container { float:left; margin:0 auto 10px; border:1px solid #ccc; width:48%; height:200px; color:#000; background:#FFF; }
 .plan { float:right; }
 .selected { border-color:#66afe9; box-shadow:inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(102,175,233,0.6); }
 
