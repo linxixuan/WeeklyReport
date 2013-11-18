@@ -3,6 +3,7 @@
     <head>
         <meta http-equiv="content-type" content="text/html;charset=utf-8">
         <title>weekly report</title>
+        <link rel="stylesheet" href="static/css/font-awsome/css/font-awesome.min.css">
         <link href="static/css/base.css" rel="stylesheet">
         <script src="static/js/jQuery.js"></script>
         <script src="static/js/base.js"></script>
@@ -28,9 +29,8 @@
                         <input type="text" class="input" placeholder="input task's type(function/bugfix/agile/promotion)"/>
                     </div>
                     <div class="description group">
-                        <label class="name">Description:</label>
+                        <label class="name">Description(*):</label>
                         <textarea class="input" placeholder="input description to help others understand this task"></textarea>
-                        <label>(*)</label>
                     </div>
                     <a class="add-record btn" href="javascript:void(0);">添加</a>
                 </div>
@@ -41,10 +41,13 @@
                 </h2>
                 <div class="sect__body">
                     <div class="completed container">
+                        <h3 class="container__title"><i class="fa fa-check-square-o"></i>本周回顾：</h3>
                     </div>
                     <div class="plan container">
+                        <h3 class="container__title"><i class="fa fa-pencil"></i>下周计划回顾：</h3>
                     </div>
                     <div class="refrection container">
+                        <h3 class="container__title"><i class="fa fa-heart"></i>感想：</h3>
                     </div>
                 </div>
             </div>
@@ -56,7 +59,12 @@
     </body>
     <script type="text/x-template" id="list-item-markup">
         <div class="list__item">
-            <h3 class="head"><span class="title">*</span><span class="progress">*</span></h3>
+            <p class="head">
+                <span class="title">*</span>
+                <span class="progress">*</span>
+                <a href="javascript:void(0);" class="J-delete controls"><i class="fa fa-minus-square"></i></a>
+                <a href="javascript:void(0);" class="J-edit controls"><i class="fa fa-edit"></i></a>
+            </p>
             <p class="body"><span class="description">*</span><span class="type">*</span></p>
         </div>
     </script>

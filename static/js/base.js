@@ -36,7 +36,7 @@ $(function () {
             content;
         content = mergeArry(template.split('*'), [title, progress, type, description]).join('');
 
-        ndTargetContainer.html(content);
+        ndTargetContainer.append(content);
     }
 
     function mergeArry(a, b) {
