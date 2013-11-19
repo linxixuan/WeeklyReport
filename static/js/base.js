@@ -3,7 +3,7 @@ $(function () {
     var ndEditer = $('.editer'),
         ndViewer = $('.viewer'),
         ndTargetContainer = $(ndViewer.find('.container')[0]),
-        report = {},
+        reportObject = {},
         itemIndex = 0;
 
     // params
@@ -15,6 +15,7 @@ $(function () {
     function bindEvent() {
         // viewer event
         ndViewer.delegate('.container', 'click', handleFocusContainer);
+        ndViewer.delegate('.gen-report', 'click', generateReport);
 
         // editer event
         ndEditer.delegate('.add-record', 'click', handAddRecord);
@@ -46,7 +47,7 @@ $(function () {
     // update Report Object
     function updateReport(content) {
         var key = ndTargetContainer.attr("class").split(" ")[0];
-        report[key] += content;
+        reportObject[key] += content;
     }
 
     function mergeArry(a, b) {
@@ -63,4 +64,11 @@ $(function () {
         return c;
     }
 
+    // generate a report ready to post
+    function generateReport() {
+        if (reportObject) {
+            alert("请添加周报内容，再生成报告!");
+        } else {
+        }
+    }
 });
