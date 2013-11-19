@@ -1,6 +1,6 @@
 /** top-level style **/
 body { background:#ecf0f1; }
-.content { padding:20px; min-height:600px; border-radius:5px; background:#FFF; }
+.content { padding:20px; min-height:600px; border-radius:5px; background:#FFF; overflow:hidden; }
 .sect { padding:1%; border-radius:5px; width:47%; min-height:600px; color:#FFF; }
 .editer { float:left; background:#3498db; }
 .viewer { float:right; background:#9b59b6; }
@@ -9,7 +9,7 @@ body { background:#ecf0f1; }
 .sect__title { font-size:20px; }
 .sect__title .description { font-size:15px; display:block; }
 
-.btn { position:relative; display:inline-block; border-bottom:1px solid rgba(0,0,0,0.25); padding:5px 10px 6px; color:#FFF; text-decoration:none; border-radius:5px; box-shadow:0 1px 3px rgba(0,0,0,0.5); cursor:pointer; }
+.btn { position:relative; display:block; border-bottom:1px solid rgba(0,0,0,0.25); padding:5px 10px 6px; width:40px; text-align:center; color:#FFF; text-decoration:none; border-radius:5px; box-shadow:0 1px 3px rgba(0,0,0,0.5); cursor:pointer; }
 .btn:active { top:1px; }
 
 /** edtior'children style**/
@@ -21,11 +21,13 @@ body { background:#ecf0f1; }
 .add-record { line-height:1; font-size:13px; font-weight:bold; text-shadow:0 -1px 1px rgba(0,0,0,0.25); background:#FF5C00; }
 
 /** viwer'children style**/
-.container { float:left; margin:0 auto 10px; border:1px solid #ccc; padding:0 5px; width:47%; height:200px; color:#000; background:#FFF; overflow:auto; }
+.container { float:left; margin:0 auto 10px; border:1px solid #ccc; border-radius:5px; padding:0 5px; width:47%; height:200px; color:#000; background:#FFF; overflow:auto; }
 .plan { float:right; }
 .selected { border-color:#66afe9; box-shadow:inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(102,175,233,0.6); }
 .container__title { margin:5px 0; }
-.list__item { margin-bottom:5px; padding:5px; height:22px; color:#EEE; background:#34495E; }
+.list__item { float:left; margin-bottom:5px; padding:5px; width:45%; height:60px; border-radius:5px; box-shadow:0 1px 10px rgba(0,0,0,0.5); color:#EEE; background:#34495E; }
+.item--even { float:right; }
 .list__item .head { margin:0; }
 .list__item .controls { float:right; margin-left:5px; color:#EEE; }
 .list__item .body { display:none; }
+.gen-report { clear:both; font-size:13px; font-weight:bold; text-shadow:0 -1px 1px rgba(0,0,0,0.25); background:#1abc9c; }
