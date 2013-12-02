@@ -82,14 +82,14 @@
         <div class="footer"></div>
     </body>
     <script type="text/x-template" id="list-item-markup">
-        <div class="list__item*">
+        <div class="list__item{modified}">
             <p class="head">
-                <span class="title">*</span>
-                <span class="progress">*</span>
+            <span class="title">{title}</span>
+            <span class="progress">{progress}</span>
                 <a href="javascript:void(0);" class="J-delete controls"><i class="fa fa-minus-square"></i></a>
                 <a href="javascript:void(0);" class="J-edit controls"><i class="fa fa-edit"></i></a>
             </p>
-            <p class="body"><span class="description">*</span><span class="type">*</span></p>
+            <p class="body"><span class="description">{description}</span><span class="type">{type}</span></p>
         </div>
     </script>
 </html>

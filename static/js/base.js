@@ -36,18 +36,64 @@ $(function () {
             progress = $(ndEditer.find('.input')[1]).val(), 
             type = $(ndEditer.find('.input')[2]).val(), 
             description = $(ndEditer.find('.input')[3]).val(),
-            content;
-        content = mergeArry(template.split('*'), [modified, title, progress, type, description]).join('');
+            content = {},
+            index = 0;
+        content['title'] = title;
+        content['progress'] = progress;
+        content['type'] = type;
+        content['description'] = description;
 
         updateReport(content);
-        ndTargetContainer.append(content);
+
+        for (var pro in content) {
+            if (content.hasOwnProperty(pro)) {
+                var pattern,
+                    modiPattern;
+                switch (pro) {
+                    case 'title':
+                        pattern = /\{title\}/g;
+                        break;
+                    case 'progress':
+                        pattern = /\{progress\}/g;
+                        break;
+                    case 'type':
+                        pattern = /\{type\}/g;
+                        break;
+                    case 'description':
+                        pattern = /\{description\}/g;
+                        break;
+                } 
+
+                template = template.replace(pattern, content[pro]);
+                var key = ndTargetContainer.attr("class").split(" ")[0];
+                if (reportObject[key]['reports'].length % 2 === 0) {
+                    template = template.replace(/\{modified\}/g, " item--even");
+                } else {
+                    template = template.replace(/\{modified\}/g, "");
+                }
+            }
+        }
+
+        ndTargetContainer.append(template);
         itemIndex++;
     }
 
     // update Report Object
     function updateReport(content) {
         var key = ndTargetContainer.attr("class").split(" ")[0];
-        reportObject[key] += content;
+        if (!reportObject[key]) {
+            reportObject[key] = {};
+        }
+        if (!reportObject[key]['reports']) {
+            reportObject[key]['reports'] = [content];
+        } else {
+            reportObject[key]['reports'].push(content);
+        }
+        if (!reportObject[key]['count']) {
+            reportObject[key]['count'] = 1;
+        } else {
+            reportObject[key]['count'] += 1;
+        }
     }
 
     function mergeArry(a, b) {
@@ -66,9 +112,23 @@ $(function () {
 
     // generate a report ready to post
     function generateReport() {
-        if (reportObject) {
+        if (isOwnEmpty(reportObject)) {
             alert("请添加周报内容，再生成报告!");
         } else {
         }
+        console.log(reportObject);
     }
+    
+    // 判断一个对象为空
+    function isOwnEmpty(obj)
+    {
+        for(var name in obj)
+        {
+            if(obj.hasOwnProperty(name))
+            {
+                return false;
+            }
+        }
+        return true;
+    };
 });
