@@ -61,27 +61,24 @@
                     <div class="block">
                         <h3 class="block__title">本周完成：</h3>
                         <ul class="completed block__list">
-                            <li class="item">
-                            <h4><span class="item__title">MTP-123水电费十大发的</span><span class="item__progress">90%</span></h4>
-                                <p>
-                                    <span class="item__description">为地方阿迪发的顺丰大师傅大师傅大师傅撒地方大师傅大师傅大师傅阿斯顿</span>
-                                    <span class="item__type">Agile</span>
-                                </p>
-                            </li>
                         </ul>
                     </div>
-                    <h3>下周计划：</h3>
-                    <ul class="plan list">
-                    </ul>
-                    <h3>感想：</h3>
-                    <ul class="refrection list">
-                    </ul>
+                    <div class="block">
+                        <h3 class="block__title">下周计划：</h3>
+                        <ul class="plan block__list">
+                        </ul>
+                    </div>
+                    <div class="block">
+                        <h3 class="block__title">感想：</h3>
+                        <ul class="refrection block__list">
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="footer"></div>
     </body>
-    <script type="text/x-template" id="list-item-markup">
+    <script type="text/x-template" id="step1-item-markup">
         <div class="list__item{modified}">
             <p class="head">
             <span class="title">{title}</span>
@@ -91,5 +88,14 @@
             </p>
             <p class="body"><span class="description">{description}</span><span class="type">{type}</span></p>
         </div>
+    </script>
+    <script type="text/x-template" id="step2-item-markup">
+        <li class="item">
+        <h4><span class="item__title">{title}</span><span class="item__progress">{progress}</span></h4>
+            <p>
+            <span class="item__description">{description}</span>
+            <span class="item__type">{type}</span>
+            </p>
+        </li>
     </script>
 </html>

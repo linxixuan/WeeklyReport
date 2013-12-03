@@ -35,8 +35,9 @@ body { background:#ecf0f1; }
 
 /** resulter's children style **/
 .resulter__title { margin-top:5px; text-align:center; }
+.resulter .plan { float:none; }
 .block__title { margin:0; border-bottom:1px solid #ccc; padding:10px 0; }
-.block__list { list-style:none; }
+.block__list { min-height:50px; list-style:none; }
 .item__title { margin-right:10px; }
 .item__progress { font-weight:normal; color:#666; }
 .item__descrption { margin-right:10px; }

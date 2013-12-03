@@ -30,14 +30,16 @@ $(function () {
 
     // add record
     function handAddRecord() {
-        var template = $('#list-item-markup').html(),
+        var template = $('#step1-item-markup').html(),
             modified = itemIndex % 2 === 1 ? ' item--even' : '',
             title = $(ndEditer.find('.input')[0]).val(), 
             progress = $(ndEditer.find('.input')[1]).val(), 
             type = $(ndEditer.find('.input')[2]).val(), 
             description = $(ndEditer.find('.input')[3]).val(),
             content = {},
-            index = 0;
+            index = 0,
+            key = ndTargetContainer.attr("class").split(" ")[0],
+            modifiedStr;
         content['title'] = title;
         content['progress'] = progress;
         content['type'] = type;
@@ -45,36 +47,16 @@ $(function () {
 
         updateReport(content);
 
-        for (var pro in content) {
-            if (content.hasOwnProperty(pro)) {
-                var pattern,
-                    modiPattern;
-                switch (pro) {
-                    case 'title':
-                        pattern = /\{title\}/g;
-                        break;
-                    case 'progress':
-                        pattern = /\{progress\}/g;
-                        break;
-                    case 'type':
-                        pattern = /\{type\}/g;
-                        break;
-                    case 'description':
-                        pattern = /\{description\}/g;
-                        break;
-                } 
+        modifiedStr = reportObject[key]['reports'].length % 2 === 0 ? ' item--even' : '';
+        itemContent = replace(template, {
+            'title' : content['title'],
+            'progress' : content['progress'],
+            'type' : content['type'],
+            'description' : content['description'],
+            'modified' : modifiedStr
+        });
 
-                template = template.replace(pattern, content[pro]);
-                var key = ndTargetContainer.attr("class").split(" ")[0];
-                if (reportObject[key]['reports'].length % 2 === 0) {
-                    template = template.replace(/\{modified\}/g, " item--even");
-                } else {
-                    template = template.replace(/\{modified\}/g, "");
-                }
-            }
-        }
-
-        ndTargetContainer.append(template);
+        ndTargetContainer.append(itemContent);
         itemIndex++;
     }
 
@@ -112,14 +94,44 @@ $(function () {
 
     // generate a report ready to post
     function generateReport() {
+        var itemTemplate = $('#step2-item-markup').html();
         if (isOwnEmpty(reportObject)) {
             alert("请添加周报内容，再生成报告!");
         } else {
+            var ndCompleted = $('.resulter').find('.completed'),
+                ndPlan = $('.resulter').find('.plan'),
+                node,
+                ndRefrection = $('.resulter').find('.refrection');
+
+            for (var p in reportObject) {
+                console.log(p);
+                switch (p) {
+                    case "completed":
+                        node = ndCompleted;
+                        break;
+                    case "plan":
+                        node = ndPlan;
+                        break;
+                    default:
+                        node = ndRefrection;
+                }
+
+                for (var index in reportObject[p]["reports"]) {
+                    record = reportObject[p]["reports"][index];
+                    node.append(replace(itemTemplate, {
+                        'title' : record["title"],
+                        'type' : record["type"],
+                        'description' : record["description"],
+                        'progress' : record["progress"]
+                    }));
+                }
+            }
+
         }
         console.log(reportObject);
     }
     
-    // 判断一个对象为空
+    // judge a object is empty
     function isOwnEmpty(obj)
     {
         for(var name in obj)
@@ -131,4 +143,15 @@ $(function () {
         }
         return true;
     };
+
+    // template => content
+    function replace(template, data)
+    {
+        var pattern;
+        for (var p in data) {
+            pattern = new RegExp('{' + p + '}', 'g');
+            template = template.replace(pattern, data[p]);
+        }
+        return template;
+    }
 });
